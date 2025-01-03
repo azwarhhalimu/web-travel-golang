@@ -1,0 +1,4 @@
+tmp/*.*
+tmp/main
+*.DS_*
+*.Ds_*
