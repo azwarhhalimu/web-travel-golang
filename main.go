@@ -16,6 +16,8 @@ func main() {
 	app := fiber.New(fiber.Config{
 		Views: template,
 	})
+	app.Static("storage", "./assets")
+
 	public := app.Group("/").(*fiber.Group)
 	routes.PubliRouting(public)
 

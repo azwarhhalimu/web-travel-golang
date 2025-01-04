@@ -7,5 +7,6 @@ import (
 )
 
 func PubliRouting(app *fiber.Group) {
-	app.Get("/", public.Index)
+	app.Get("/", public.Index).
+		Get("/tentang", public.Tentang)
 }
