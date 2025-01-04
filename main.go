@@ -2,6 +2,7 @@ package main
 
 import (
 	"log"
+	"web_traveler/app/config"
 	"web_traveler/app/middleware"
 	"web_traveler/app/routes"
 
@@ -10,7 +11,7 @@ import (
 )
 
 func main() {
-
+	config.Connect()
 	template := jet.New("./app/views", ".jet")
 
 	app := fiber.New(fiber.Config{
