@@ -1,1 +1,35 @@
-kategori
+<div class="container-fluid" id="container-wrapper">
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Data Kategori</h1>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/admin/">Dashboard</a></li>
+
+            <li class="breadcrumb-item active" aria-current="page">Data Kategori</li>
+        </ol>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <table class="table">
+                <thead>
+                    <tr style="font-weight: bold; color:blue">
+                        <td>No</td>
+                        <td>Ikon</td>
+                        <td>Nama Kategori</td>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>No</td>
+                        <td>Ikon</td>
+                        <td>Nama Kategori</td>
+                        <td style="text-align: right;">
+                            <a class="btn text-white btn-danger">Hapus</a>
+                            <a class="btn text-white btn-success">Ubah</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
