@@ -8,4 +8,5 @@ import (
 
 func AdminRouting(app *fiber.Group) {
 	app.Get("/kategori.html", admin_kategori.Kategori)
+	app.Get("/kategori/tambah-kategori.html", admin_kategori.TambahKategori)
 }

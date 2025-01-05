@@ -13,3 +13,6 @@ func Kategori(ctx *fiber.Ctx) error {
 		"Data": data,
 	})
 }
+func TambahKategori(ctx *fiber.Ctx) error {
+	return render.RenderAdmin(ctx, "kategori/tambah-kategori")
+}
