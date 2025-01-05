@@ -20,7 +20,8 @@
                         </div>
                         <div class="form-group"></div>
                         <label>Ikon</label>
-                        <input name="ikon" placeholder="Masukkan kategori" required type="file" class="form-control" />
+                        <input name="ikon" placeholder="Masukkan kategori" accept=".svg" required type="file"
+                            class="form-control" />
                         <br />
                         <button class="btn btn-success">Simpan</button>
                     </form>

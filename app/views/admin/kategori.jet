@@ -25,10 +25,14 @@
                     {{ range index:= Data}}
                     <tr>
                         <td>{{index+1}}</td>
-                        <td>{{.Ikon}}</td>
+                        <td>
+                            <img style="width:50px" src=" /images/ikon/{{.Ikon}}.svg" />
+                        </td>
                         <td>{{.Kategori}}</td>
                         <td style="text-align: right;">
-                            <a class="btn text-white btn-danger">Hapus</a>
+                            <a onclick="return confirm('Apakah anda ingin hapus data ini?')"
+                                href="/admin/kategori/delete/{{.IDKategori}}"
+                                class="btn text-white btn-danger">Hapus</a>
                             <a class="btn text-white btn-success">Ubah</a>
                         </td>
                     </tr>
