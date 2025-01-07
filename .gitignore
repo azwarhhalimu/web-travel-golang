@@ -2,3 +2,5 @@ tmp/*.*
 tmp/main
 *.DS_*
 *.Ds_*
+storage/ikon/*.*
+!storage/ikon/*.gitkeep
