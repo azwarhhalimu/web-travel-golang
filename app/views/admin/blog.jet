@@ -1,1 +1,41 @@
-blog
+<div class="container-fluid" id="container-wrapper">
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Data Blog</h1>
+        <a class="btn btn-primary" href="/admin/blog/tambah-blog.html">Tambah Blog</a>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <table class="table">
+                <thead>
+                    <tr style="font-weight:bold">
+                        <td>No</td>
+                        <td>Thumb</td>
+                        <td>Judul</td>
+                        <td>Deskripsi</td>
+                        <td></td>
+                    </tr>
+                </thead>
+                <thead>
+                    {{ range i:=Data}}
+                    <tr>
+                        <td>{{i+1}}</td>
+                        <td>
+                            <img style="width:60px" src="/images/blog/{{.Nama_Image}}.jpg?reload={{Uuid}}" />
+                        </td>
+                        <td>{{.Judul}}</td>
+                        <td>{{.Deskripsi_Singkat}}</td>
+                        <td style="text-align:right">
+                            <a href="/admin/blog/delete/{{.IDBlog}}" class="btn btn-danger">
+                                Hapus
+                            </a>
+                            <a href="/admin/blog/edit/{{.IDBlog}}" class="btn btn-success">
+                                Ubah
+                            </a>
+                        </td>
+                    </tr>
+                    {{end}}
+                </thead>
+            </table>
+        </div>
+    </div>
+</div>

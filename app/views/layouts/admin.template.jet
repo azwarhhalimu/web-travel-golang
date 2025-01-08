@@ -40,7 +40,10 @@
     <script src="/storage/admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="/storage/admin/vendor/jquery-easing/jquery.easing.min.js"></script>
     <script src="/storage/admin/js/ruang-admin.min.js"></script>
+    {{include "partial-admin/summernote"}}
 
 </body>
+
+
 
 </html>

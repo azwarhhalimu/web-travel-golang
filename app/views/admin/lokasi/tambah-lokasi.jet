@@ -1,0 +1,56 @@
+<div class="container-fluid" id="container-wrapper">
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <a href="/admin/lokasi.html" class="btn btn-danger">Kembali</a>
+        <h1 class="h3 mb-0 text-gray-800">Tambah Lokasi</h1>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/admin">Dashboard</a></li>
+            <li class="breadcrumb-item"><a href="/admin/lokasi.html">Lokasi</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Tambah Lokasi</li>
+        </ol>
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            <form method="post" action="">
+                <div class="form-group">
+                    <label>Nama Lokasi</label>
+                    <input name="nama_lokasi" type="text" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label>Kategori</label>
+                    <select name="id_kategori" class="form-control">
+                        <option value="">Pilih Kategori</option>
+                        {{range Kategori}}
+                        <option value="{{.IDKategori}}">{{.Kategori}}</option>
+                        {{end}}
+                    </select>
+                </div>
+                <div class="form-group d-sm-flex">
+                    <div>
+                        <label>Titik Lat</label>
+                        <input name="lat" type="text" class="form-control" />
+                    </div>
+                    <div>
+                        <label>Titik Lng</label>
+                        <input name="lng" type="text" class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Harga</label>
+                    <input name="harga" type="number" value="0" class="form-control" />
+                </div>
+
+                <div class="form-group">
+                    <label>Alamat Lokasi</label>
+                    <input name="alamat_lengkap" type="text" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label>Deskripsi</label>
+                    <textarea name="deskripsi" id="summernote"></textarea>
+                </div>
+                <button class="btn btn-primary">Simpan </button>
+            </form>
+        </div>
+    </div>
+
+</div>

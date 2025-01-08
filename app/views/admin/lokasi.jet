@@ -1,1 +1,41 @@
-lokasi
+<div class="container-fluid" id="container-wrapper">
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Data Lokasi</h1>
+        <a href="/admin/lokasi/tambah-lokasi.html" class="btn btn-primary">Tambah Data</a>
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <td>No</td>
+                        <td>Nama Lokasi</td>
+                        <td>Alamat Lengkap</td>
+                        <td>Harga</td>
+                        <td style="text-align:right">
+
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{range index:=Data}}
+                    <tr>
+                        <td>{{index+1}}</td>
+                        <td>{{.Nama_lokasi}}</td>
+                        <td>{{.Alamat_lengkap}}</td>
+                        <td>{{.Harga}}</td>
+                        <td style="text-align:right">
+                            <a href="" class="btn btn-success">Lihat</a>
+                            <a href="" class="btn btn-warning">Edit</a>
+                            <a onclick="return confirm('Apakah anda ingin hapus data ini?')"
+                                href="/admin/lokasi/delete/{{.IDLokasi}}" class="btn btn-danger">Hapus</a>
+                        </td>
+                    </tr>
+                    {{end}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>

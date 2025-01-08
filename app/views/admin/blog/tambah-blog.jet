@@ -1,0 +1,47 @@
+<div class="container-fluid" id="container-wrapper">
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <a class="btn btn-danger" href="/admin/blog.html">Kembali</a>
+        <h1 class="h3 mb-0 text-gray-800">Tambah Blog</h1>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/admin/">Home</a></li>
+            <li class="breadcrumb-item">Blog</li>
+            <li class="breadcrumb-item active" aria-current="page">Tambah Blog</li>
+        </ol>
+    </div>
+    <div class="row">
+        <div class="col-7" style="margin:auto">
+            <div class="card">
+                <div class="card-body">
+                    <form method="post" action="" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label>File Thumbnail</label>
+                            <input accept="image/jpeg, image/png" name="thumb" type="file" class="form-control"
+                                required />
+                        </div>
+                        <div class="form-group">
+                            <label>Judul</label>
+                            <input name="judul" type="text" class="form-control" placeholder="Masukkan judul"
+                                required />
+                        </div>
+                        <div class="form-group">
+                            <label>Deskripsi Singkat</label>
+                            <textarea name="deskripsi_singkat" class="form-control"
+                                placeholder="Ketikkan deskripsi singkat" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Alias Url</label>
+                            <input name="alias" type="text" class="form-control" placeholder="" required />
+                        </div>
+                        <div class="form-group">
+                            <label>Isi Blog</label>
+                            <textarea id="summernote" name="deskripsi_lengkap" class="form-control"
+                                placeholder="Ketikkan konten blog" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-success">Simpan Data</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

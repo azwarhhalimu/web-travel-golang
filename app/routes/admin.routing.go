@@ -1,7 +1,9 @@
 package routes
 
 import (
+	"web_traveler/app/controllers/admin/blog_admin"
 	"web_traveler/app/controllers/admin/kategori_admin"
+	"web_traveler/app/controllers/admin/lokasi_admin"
 
 	"github.com/gofiber/fiber/v2"
 )
@@ -11,8 +13,20 @@ func AdminRouting(app *fiber.Group) {
 	app.Get("/kategori/tambah-kategori.html", kategori_admin.TambahKategori)
 	app.Post("/kategori/tambah-kategori.html", kategori_admin.SimpanKategori)
 	app.Get("/kategori/delete/:id", kategori_admin.DeleteKategori)
-
 	app.Get("/kategori/edit/:id", kategori_admin.EditKategori)
 	app.Post("/kategori/edit/:id", kategori_admin.UpdateKategori)
+
+	app.Get("/blog.html", blog_admin.GetAll)
+	app.Get("/blog/tambah-blog.html", blog_admin.TambahBlog)
+	app.Post("/blog/tambah-blog.html", blog_admin.SimpanBLog)
+	app.Get("/blog/delete/:id", blog_admin.DeleteBlog) //delete data
+	app.Get("/blog/edit/:id", blog_admin.EditBlog)     //edit data
+	app.Post("/blog/edit/:id", blog_admin.UpdateBlog)
+
+	//edit data
+	app.Get("/lokasi.html", lokasi_admin.GetAll)                      //edit data
+	app.Get("/lokasi/tambah-lokasi.html", lokasi_admin.TambahLokasi)  //tambah lokasi
+	app.Post("/lokasi/tambah-lokasi.html", lokasi_admin.SimpanLokasi) //SIMPNA lokasi
+	app.Get("/lokasi/delete/:id", lokasi_admin.DeleteLokasi)          // DELETE LOKASI lokasi
 
 }
