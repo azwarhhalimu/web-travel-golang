@@ -1,0 +1,59 @@
+<div class="container-fluid" id="container-wrapper">
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <a class="btn btn-danger" href="/admin/lokasi.html">Kembali</a>
+        <h1 class="h3 mb-0 text-gray-800">LIhat Lokasi</h1>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/admin">Dashboard</a></li>
+            <li class="breadcrumb-item"><a href="/admin/lokasi.html">Dashboard</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Lihat Lokasi</li>
+        </ol>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <table cellpadding="5px">
+                <tbody>
+                    <tr>
+                        <td>Nama Lokasi</td>
+                        <td>:</td>
+                        <td>{{Data.Nama_lokasi}}
+
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Kategori</td>
+                        <td>:</td>
+                        <td>{{Data.Kategori.Kategori}}</td>
+                    </tr>
+                    <tr>
+                        <td>Harga</td>
+                        <td>:</td>
+                        <td>{{Data.Harga}}</td>
+                    </tr>
+                    <tr>
+                        <td>Alamat Lengkap</td>
+                        <td>:</td>
+                        <td>{{Data.Alamat_lengkap}}</td>
+                    </tr>
+                    <tr>
+                        <td valign="top">Deskripsi</td>
+                        <td valign="top">:</td>
+                        <td>
+                            {{Data.Deskripsi | unsafe}}
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+            <iframe width="600" height="400" style="border:0;"
+                src="https://www.openstreetmap.org/export/embed.html?bbox={{Data.Lng}},{{Data.Lat}},{{Data.Lng}},{{Data.Lat}}&layer=mapnik&marker={{Data.Lat}},{{Data.Lng}}">
+            </iframe>
+
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d773.056508699128!2d{{Data.Lng}}!3d{{Data.Lat}}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNcKwMzEnMjcuNyJTIDEyMsKwMzQnMDYuNiJF!5e1!3m2!1sen!2sid!4v1736553902352!5m2!1sen!2sid"
+                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+
+</div>

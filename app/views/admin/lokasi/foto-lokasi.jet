@@ -1,0 +1,59 @@
+<div class="container-fluid" id="container-wrapper">
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Foto Lokasi</h1>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/admin">Dashboard</a></li>
+            <li class="breadcrumb-item"><a href="/admin/lokasi.html">Lokasi</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Foto Lokasi</li>
+        </ol>
+    </div>
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="card">
+                <div class="card-body">
+                    <h4>Upload Foto Lokasi</h4>
+                    <form action="" method="POST" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label>Label</label>
+                            <input type="text" class="form-control" name="label" />
+                        </div>
+                        <div class="form-group">
+                            <label>Label</label>
+                            <input type="file" class="form-control" name="label" />
+                        </div>
+                        <button class="btn btn-primary">Simpan</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-8">
+            <div class="card">
+                <div class="card-body">
+                    <table class="table">
+                        <thead>
+                            <tr style="font-weight:bold">
+                                <td>No</td>
+                                <td>Foto</td>
+                                <td>Label</td>
+                                <td>
+                                    Opsi
+                                </td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>No</td>
+                                <td>Foto</td>
+                                <td>Label</td>
+                                <td>
+                                    Opsi
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

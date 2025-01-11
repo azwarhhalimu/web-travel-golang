@@ -23,10 +23,13 @@ func AdminRouting(app *fiber.Group) {
 	app.Get("/blog/edit/:id", blog_admin.EditBlog)     //edit data
 	app.Post("/blog/edit/:id", blog_admin.UpdateBlog)
 
-	//edit data
 	app.Get("/lokasi.html", lokasi_admin.GetAll)                      //edit data
 	app.Get("/lokasi/tambah-lokasi.html", lokasi_admin.TambahLokasi)  //tambah lokasi
 	app.Post("/lokasi/tambah-lokasi.html", lokasi_admin.SimpanLokasi) //SIMPNA lokasi
-	app.Get("/lokasi/delete/:id", lokasi_admin.DeleteLokasi)          // DELETE LOKASI lokasi
+	app.Get("/lokasi/delete/:id", lokasi_admin.DeleteLokasi)
+	app.Get("/lokasi/edit-lokasi/:id", lokasi_admin.EditLokasi)    // DELETE LOKASI lokasi
+	app.Post("/lokasi/edit-lokasi/:id", lokasi_admin.UpdateLokasi) // UPDATE LOKASI
+	app.Get("/lokasi/lihat-lokasi/:id", lokasi_admin.Lihat_lokasi) // LIhat Lokasi LOKASI
+	app.Get("/lokasi/foto-lokasi/:id", lokasi_admin.FotoLokasi)    // FOTO LOKASI
 
 }

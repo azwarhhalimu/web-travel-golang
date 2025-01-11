@@ -22,6 +22,7 @@ type TblLokasi struct {
 	Lat            string
 	Lng            string
 	Alamat_lengkap string
+	Kategori       TblKategori `gorm:"foreignKey:IDKategori;references:IDKategori"`
 }
 
 func (TblKategori) TableName() string {
