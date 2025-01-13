@@ -1,13 +1,18 @@
 package lokasi_services
 
 import (
+	"os"
+	"strconv"
 	"web_traveler/app/config"
 	"web_traveler/app/model"
 )
 
 func GetAll() []model.TblLokasi {
 	var data []model.TblLokasi
-	config.DB.Preload("Kategori").Find(&data)
+	config.DB.
+		Preload("Kategori").
+		Preload("FotoLokasi", "default_foto=?", 1).
+		Find(&data)
 	return data
 }
 func Fist(id string) model.TblLokasi {
@@ -44,4 +49,41 @@ func Update(id string, formdata model.TblLokasi) string {
 			"alamat_lengkap": formdata.Alamat_lengkap,
 		})
 	return "success"
+}
+func SimpanFotoLokasi(id string, nama_foto string, formdata model.TblFotoLokasi) string {
+	config.DB.Table("foto_lokasi").Create(map[string]interface{}{
+		"label":      formdata.Label,
+		"image_name": nama_foto,
+		"id_lokasi":  id,
+	})
+	return "success"
+}
+func GetFotoLokasi(id string) []model.TblFotoLokasi {
+	var data []model.TblFotoLokasi
+	config.DB.Where("id_lokasi", id).Find(&data)
+	return data
+}
+
+func DeleteFoto(id string) string {
+	var data model.TblFotoLokasi
+	config.DB.First(&data, id)
+	config.DB.Delete(&model.TblFotoLokasi{}, id)
+	path := "./storage/foto-lokasi/" + data.Image_name + ".jpg"
+	_, err := os.Stat(path)
+	if err == nil {
+		os.Remove(path)
+	}
+	return strconv.FormatUint(uint64(data.IDLokasi), 10)
+}
+
+func SetDefault(id_foto_lokasi string) string {
+	var data model.TblFotoLokasi
+	config.DB.First(&data, id_foto_lokasi)
+
+	config.DB.Model(&model.TblFotoLokasi{}).
+		Where("id_lokasi=?", data.IDLokasi).Update("default_foto", 0)
+
+	config.DB.Model(&model.TblFotoLokasi{}).
+		Where("id_foto_lokasi=?", id_foto_lokasi).Update("default_foto", 1)
+	return strconv.FormatUint(uint64(data.IDLokasi), 10)
 }

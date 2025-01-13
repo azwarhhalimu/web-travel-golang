@@ -10,6 +10,7 @@
                 <thead>
                     <tr>
                         <td>No</td>
+                        <td>Foto</td>
                         <td>Nama Lokasi</td>
                         <td>Kategori</td>
                         <td>Alamat Lengkap</td>
@@ -23,6 +24,10 @@
                     {{range index:=Data}}
                     <tr>
                         <td>{{index+1}}</td>
+                        <td>
+                            {{if len(.FotoLokasi)>0}}
+                            <img style="width: 70px;" src="/images/foto-lokasi/{{.FotoLokasi[0].Image_name}}.jpg"
+                                {{end}} </td>
                         <td>{{.Nama_lokasi}}
                             <div>
                                 <a href="/admin/lokasi/foto-lokasi/{{.IDLokasi}}">Foto Lokasi</a>

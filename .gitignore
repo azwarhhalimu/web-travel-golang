@@ -3,5 +3,7 @@ tmp/main
 *.DS_*
 storage/ikon/*
 storage/blog/*
+storage/foto-lokasi/*
 !storage/ikon/.gitkeep
 !storage/blog/.gitkeep
+!storage/foto-lokasi/.gitkeep

@@ -10,6 +10,7 @@ Yang du butuhnan
                      go get -u gorm.io/driver/mysql
 
 4. Jet : go get github.com/gofiber/template/jet/v2
+5. Air verse : go install github.com/air-verse/air@latest
 
     
 --- embed map ----

@@ -14,11 +14,11 @@
             <form method="post" action="">
                 <div class="form-group">
                     <label>Nama Lokasi</label>
-                    <input name="nama_lokasi" type="text" class="form-control" />
+                    <input required name="nama_lokasi" type="text" class="form-control" />
                 </div>
                 <div class="form-group">
                     <label>Kategori</label>
-                    <select name="id_kategori" class="form-control">
+                    <select required name="id_kategori" class="form-control">
                         <option value="">Pilih Kategori</option>
                         {{range Kategori}}
                         <option value="{{.IDKategori}}">{{.Kategori}}</option>
@@ -28,25 +28,25 @@
                 <div class="form-group d-sm-flex">
                     <div>
                         <label>Titik Lat</label>
-                        <input name="lat" type="text" class="form-control" />
+                        <input required name="lat" type="text" class="form-control" />
                     </div>
                     <div>
                         <label>Titik Lng</label>
-                        <input name="lng" type="text" class="form-control" />
+                        <input required name="lng" type="text" class="form-control" />
                     </div>
                 </div>
                 <div class="form-group">
                     <label>Harga</label>
-                    <input name="harga" type="number" value="0" class="form-control" />
+                    <input required name="harga" type="number" value="0" class="form-control" />
                 </div>
 
                 <div class="form-group">
                     <label>Alamat Lokasi</label>
-                    <input name="alamat_lengkap" type="text" class="form-control" />
+                    <input required name="alamat_lengkap" type="text" class="form-control" />
                 </div>
                 <div class="form-group">
                     <label>Deskripsi</label>
-                    <textarea name="deskripsi" id="summernote"></textarea>
+                    <textarea required name="deskripsi" id="summernote"></textarea>
                 </div>
                 <button class="btn btn-primary">Simpan </button>
             </form>

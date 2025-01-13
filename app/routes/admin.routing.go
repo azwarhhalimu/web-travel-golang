@@ -27,9 +27,12 @@ func AdminRouting(app *fiber.Group) {
 	app.Get("/lokasi/tambah-lokasi.html", lokasi_admin.TambahLokasi)  //tambah lokasi
 	app.Post("/lokasi/tambah-lokasi.html", lokasi_admin.SimpanLokasi) //SIMPNA lokasi
 	app.Get("/lokasi/delete/:id", lokasi_admin.DeleteLokasi)
-	app.Get("/lokasi/edit-lokasi/:id", lokasi_admin.EditLokasi)    // DELETE LOKASI lokasi
-	app.Post("/lokasi/edit-lokasi/:id", lokasi_admin.UpdateLokasi) // UPDATE LOKASI
-	app.Get("/lokasi/lihat-lokasi/:id", lokasi_admin.Lihat_lokasi) // LIhat Lokasi LOKASI
-	app.Get("/lokasi/foto-lokasi/:id", lokasi_admin.FotoLokasi)    // FOTO LOKASI
+	app.Get("/lokasi/edit-lokasi/:id", lokasi_admin.EditLokasi)        // DELETE LOKASI lokasi
+	app.Post("/lokasi/edit-lokasi/:id", lokasi_admin.UpdateLokasi)     // UPDATE LOKASI
+	app.Get("/lokasi/lihat-lokasi/:id", lokasi_admin.Lihat_lokasi)     // LIhat Lokasi LOKASI
+	app.Get("/lokasi/foto-lokasi/:id", lokasi_admin.FotoLokasi)        // FOTO LOKASI
+	app.Post("/lokasi/foto-lokasi/:id", lokasi_admin.SimpanFotoLokasi) //SIMPAN FOTO LOKASI
+	app.Get("/foto-lokasi/delete/:id", lokasi_admin.HapusFotoLokasi)   //delete FOTO LOKASI
+	app.Get("/foto-lokasi/default/:id", lokasi_admin.SetDefault)       //DefaultFOTO LOKASI
 
 }

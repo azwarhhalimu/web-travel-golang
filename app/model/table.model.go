@@ -22,9 +22,20 @@ type TblLokasi struct {
 	Lat            string
 	Lng            string
 	Alamat_lengkap string
-	Kategori       TblKategori `gorm:"foreignKey:IDKategori;references:IDKategori"`
+	Kategori       TblKategori     `gorm:"foreignKey:IDKategori;references:IDKategori"`
+	FotoLokasi     []TblFotoLokasi `gorm:"foreignKey:IDLokasi"`
+}
+type TblFotoLokasi struct {
+	IDFotoLokasi uint `gorm:"primaryKey"`
+	IDLokasi     uint `gorm:"foreignKey"`
+	Label        string
+	Default_foto uint
+	Image_name   string
 }
 
+func (TblFotoLokasi) TableName() string {
+	return "foto_lokasi"
+}
 func (TblKategori) TableName() string {
 	return "kategori"
 }
