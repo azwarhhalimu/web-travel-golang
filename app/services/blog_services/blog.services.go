@@ -19,9 +19,14 @@ func Save(formdata model.TblBlog) string {
 	})
 	return namaimage
 }
-func GetAll() []model.TblBlog {
+func GetAll(flag ...string) []model.TblBlog {
 	var data []model.TblBlog
-	config.DB.Find(&data)
+	if len(flag) > 0 {
+		config.DB.Limit(3).Order("RAND()").Find(&data)
+	} else {
+		config.DB.Find(&data)
+	}
+
 	return data
 }
 func First(id string) model.TblBlog {
@@ -43,4 +48,15 @@ func Update(id_blog string, formdata model.TblBlog) model.TblBlog {
 		"alias":             formdata.Alias,
 	})
 	return data
+}
+
+func Lihat_blog(alias string) (lihat_blog model.TblBlog, blog_lainnya []model.TblBlog) {
+	var data_blog_lainnya []model.TblBlog
+	var data model.TblBlog
+	config.DB.Where("alias=?", alias).First(&data)
+	config.DB.Where("alias!=?", alias).Limit(3).Find(&data_blog_lainnya)
+
+	lihat_blog = data
+	blog_lainnya = data_blog_lainnya
+	return
 }

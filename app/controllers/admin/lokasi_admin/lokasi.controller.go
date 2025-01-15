@@ -42,7 +42,7 @@ func DeleteLokasi(ctx *fiber.Ctx) error {
 func EditLokasi(ctx *fiber.Ctx) error {
 	kategori := kategori_services.GetAll()
 	id := ctx.Params("id")
-	data := lokasi_services.Fist(id)
+	data := lokasi_services.First(id)
 	return render.RenderAdmin(ctx, "lokasi/edit-lokasi", fiber.Map{
 		"Summernote": true,
 		"Kategori":   kategori,
@@ -59,7 +59,7 @@ func UpdateLokasi(ctx *fiber.Ctx) error {
 }
 func Lihat_lokasi(ctx *fiber.Ctx) error {
 	id := ctx.Params("id")
-	data := lokasi_services.Fist(id)
+	data := lokasi_services.First(id)
 	return render.RenderAdmin(ctx, "lokasi/lihat-lokasi", fiber.Map{
 		"Data": data,
 	})

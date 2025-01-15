@@ -5,20 +5,59 @@ import (
 	"strconv"
 	"web_traveler/app/config"
 	"web_traveler/app/model"
+	"web_traveler/app/services/kategori_services"
 )
 
-func GetAll() []model.TblLokasi {
+func GetAll(flag ...string) []model.TblLokasi {
+
+	var data []model.TblLokasi
+	query := config.DB.
+		Preload("Kategori").
+		Preload("FotoLokasi", "default_foto=?", 1)
+
+	if len(flag) > 0 {
+		query.Limit(6).Order("RAND()")
+	}
+	query.Find(&data)
+
+	return data
+}
+func First(id string, user ...string) model.TblLokasi {
+	var data model.TblLokasi
+	if len(user) > 0 {
+		config.DB.Preload("Kategori").
+			Preload("FotoLokasi").
+			First(&data, id)
+	} else {
+		config.DB.Preload("Kategori").First(&data, id)
+	}
+
+	return data
+}
+func LokasiLainnya(id string) []model.TblLokasi {
 	var data []model.TblLokasi
 	config.DB.
+		Limit(6).
 		Preload("Kategori").
-		Preload("FotoLokasi", "default_foto=?", 1).
+		Preload("FotoLokasi", "default_foto=?", "1").
 		Find(&data)
 	return data
 }
-func Fist(id string) model.TblLokasi {
-	var data model.TblLokasi
-	config.DB.Preload("Kategori").First(&data, id)
-	return data
+func LokasiByKategori(id_kategori string) (lokasi []model.TblLokasi,
+	xkategori model.TblKategori,
+	list_kategori []model.TblKategori) {
+	var data []model.TblLokasi
+	var kategori model.TblKategori
+
+	config.DB.First(&kategori, id_kategori)
+	config.DB.
+		Preload("Kategori").
+		Preload("FotoLokasi", "default_foto=?", "1").
+		Where("id_kategori=?", id_kategori).Find(&data)
+	list_kategori = kategori_services.GetAll()
+	lokasi = data
+	xkategori = kategori
+	return
 }
 func Delete(id string) string {
 	config.DB.Delete(&model.TblLokasi{}, id)

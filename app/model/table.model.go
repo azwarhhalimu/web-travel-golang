@@ -1,9 +1,10 @@
 package model
 
 type TblKategori struct {
-	IDKategori uint `gorm:"primaryKey"`
-	Kategori   string
-	Ikon       string
+	IDKategori    uint `gorm:"primaryKey"`
+	Kategori      string
+	Ikon          string
+	Jumlah_lokasi int
 }
 type TblBlog struct {
 	IDBlog            uint `gorm:"primaryKey"`

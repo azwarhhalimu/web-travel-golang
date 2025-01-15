@@ -2,20 +2,70 @@ package public
 
 import (
 	"web_traveler/app/hook/render"
+	"web_traveler/app/services/blog_services"
+	"web_traveler/app/services/lokasi_services"
+	"web_traveler/app/services/user_services"
+	"web_traveler/app/utils"
 
 	"github.com/gofiber/fiber/v2"
 )
 
 func Index(ctx *fiber.Ctx) error {
-	return ctx.Render("index",
-		fiber.Map{
-			"Nama":  "Azwar Halimu",
-			"Title": "Beranda",
-		},
-		"layouts/public.template")
+	data := user_services.GetKategori()
+	blog := blog_services.GetAll("USER")
+	lokasi := lokasi_services.GetAll("USER")
+	return render.RenderPublic(ctx, "index", fiber.Map{
+		"Menu":         "index",
+		"Data":         data,
+		"Blog":         blog,
+		"Lokasi":       lokasi,
+		"NumberFormat": utils.NumberFormat,
+	})
 }
-func Tentang(ctx *fiber.Ctx) error {
-	return render.RenderPublic(ctx, "tentang", fiber.Map{
-		"Title": "Tentang",
+func SemuaLokasi(ctx *fiber.Ctx) error {
+	lokasi := lokasi_services.GetAll()
+	return render.RenderPublic(ctx, "semua-lokasi", fiber.Map{
+		"NumberFormat": utils.NumberFormat,
+		"Lokasi":       lokasi,
+		"Title":        "Semua Lokasi",
+		"Menu":         "semua-lokasi",
+	})
+}
+func Blog(ctx *fiber.Ctx) error {
+	blog := blog_services.GetAll()
+	return render.RenderPublic(ctx, "blog", fiber.Map{
+		"Blog":  blog,
+		"Title": "Semua Blog",
+		"Menu":  "blog",
+	})
+}
+func LihatBlog(ctx *fiber.Ctx) error {
+	alias := ctx.Params("alias")
+	data, blog_lainnya := blog_services.Lihat_blog(alias)
+	return render.RenderPublic(ctx, "lihat-blog", fiber.Map{
+		"Data":         data,
+		"Blog_lainnya": blog_lainnya,
+	})
+}
+
+func LihatLokasi(ctx *fiber.Ctx) error {
+	id := ctx.Params("id")
+
+	data := lokasi_services.First(id, "USER")
+	lokasi_lainnya := lokasi_services.LokasiLainnya(id)
+	return render.RenderPublic(ctx, "lihat-lokasi", fiber.Map{
+		"Data":           data,
+		"Lokasi_lainnya": lokasi_lainnya,
+		"NumberFormat":   utils.NumberFormat,
+	})
+}
+func LokasiByKategori(ctx *fiber.Ctx) error {
+	id := ctx.Params("id")
+	data, kategori, list_kategori := lokasi_services.LokasiByKategori(id)
+	return render.RenderPublic(ctx, "lokasi-by-kategori", fiber.Map{
+		"Data":          data,
+		"Kategori":      kategori,
+		"List_kategori": list_kategori,
+		"NumberFormat":  utils.NumberFormat,
 	})
 }

@@ -8,5 +8,9 @@ import (
 
 func PubliRouting(app *fiber.Group) {
 	app.Get("/", public.Index).
-		Get("/tentang", public.Tentang)
+		Get("/semua-lokasi.html", public.SemuaLokasi).
+		Get("/blog.html", public.Blog).
+		Get("/artikel/:alias", public.LihatBlog).
+		Get("/lokasi/:id", public.LihatLokasi).
+		Get("/lokasi-by-kategori/:id", public.LokasiByKategori)
 }

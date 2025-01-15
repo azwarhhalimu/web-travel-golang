@@ -3,8 +3,8 @@ package render
 import "github.com/gofiber/fiber/v2"
 
 var defaultVaribal = fiber.Map{
-	"Title":   "Default Title",
-	"AppName": "Traveller Kota Baubau",
+	"Title": "Traveler Kota Baubau",
+	"Menu":  "",
 }
 
 func RenderPublic(ctx *fiber.Ctx, filename string, data ...fiber.Map) error {
