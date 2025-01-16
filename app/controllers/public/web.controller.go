@@ -1,6 +1,7 @@
 package public
 
 import (
+	"web_traveler/app/config"
 	"web_traveler/app/hook/render"
 	"web_traveler/app/services/blog_services"
 	"web_traveler/app/services/login"
@@ -82,15 +83,29 @@ func Cari(ctx *fiber.Ctx) error {
 }
 
 func Login(ctx *fiber.Ctx) error {
-	return ctx.Render("login", fiber.Map{})
+	sesi, _ := config.STORE.Get(ctx)
+	defer sesi.Save()
+	login_error := sesi.Get("login_error")
+
+	sesi.Delete("login_error")
+	return ctx.Render("login", fiber.Map{
+		"Login_error": login_error,
+	})
 }
 func DoLogin(ctx *fiber.Ctx) error {
+	sesi, _ := config.STORE.Get(ctx)
 	username := ctx.FormValue("username")
 	password := ctx.FormValue("password")
-	status, _ := login.DoLogin(username, password)
+	status, data := login.DoLogin(username, password)
 	if status == "success" {
-		return ctx.SendString("login sukses")
+		sesi.Set("login_name", data.Nama)
+		sesi.Set("login_username", data.Username)
+		sesi.Set("login_success", "true")
+		defer sesi.Save()
+		return ctx.Redirect("/admin")
 	} else {
-		return ctx.SendString("login sukses status:" + status)
+		sesi.Set("login_error", "Username atau password tidak benar")
+		defer sesi.Save()
+		return ctx.Redirect("/login")
 	}
 }

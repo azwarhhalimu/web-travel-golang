@@ -11,6 +11,7 @@ import (
 
 func AdminRouting(app *fiber.Group) {
 	app.Get("/", admin.Dashboard)
+	app.Get("/logout", admin.Logout)
 
 	app.Get("/kategori.html", kategori_admin.Kategori)
 	app.Get("/kategori/tambah-kategori.html", kategori_admin.TambahKategori)

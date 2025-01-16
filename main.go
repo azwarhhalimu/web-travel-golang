@@ -11,6 +11,7 @@ import (
 )
 
 func main() {
+	config.InitSession()
 	config.Connect()
 	template := jet.New("./app/views", ".jet")
 

@@ -35,6 +35,11 @@
                                             <h1 class="h4 text-gray-900 mb-4">Login</h1>
                                         </div>
                                         <form action="" method="post" class="user">
+                                            {{if Login_error}}
+                                            <div class="alert alert-danger">
+                                                {{Login_error}}
+                                            </div>
+                                            {{end}}
                                             <div class="form-group">
                                                 <input type="text" name="username" required class="form-control"
                                                     id="exampleInputEmail" aria-describedby="emailHelp"

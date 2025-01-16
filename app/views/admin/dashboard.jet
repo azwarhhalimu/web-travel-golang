@@ -1,4 +1,9 @@
 <center>
+    {{if Login_success}}
+    <div class="alert alert-success">
+        Login Berhasil
+    </div>
+    {{end}}
     <h2>Selamat Data Administrotor</h2>
     <br />
     <div style="width: 500px;">
@@ -9,17 +14,12 @@
                         <tr>
                             <td>Nama User</td>
                             <td>:</td>
-                            <td></td>
+                            <td>{{Login_name}}</td>
                         </tr>
                         <tr>
                             <td>Userename</td>
                             <td>:</td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>Waktu Login</td>
-                            <td>:</td>
-                            <td></td>
+                            <td>{{Login_username}}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -27,6 +27,7 @@
         </div>
         <br />
         <br />
-        <button class="btn btn-danger">Logout</button>
+        <a onclick="return confirm(`Apakah anda ingin logout?`)" class="nav-link" href="/admin/logout"
+            class="btn btn-danger">Logout</a>
     </div>
 </center>
