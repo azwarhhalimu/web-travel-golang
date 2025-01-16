@@ -12,5 +12,7 @@ func PubliRouting(app *fiber.Group) {
 		Get("/blog.html", public.Blog).
 		Get("/artikel/:alias", public.LihatBlog).
 		Get("/lokasi/:id", public.LihatLokasi).
-		Get("/lokasi-by-kategori/:id", public.LokasiByKategori)
+		Get("/lokasi-by-kategori/:id", public.LokasiByKategori).
+		Get("/cari", public.Cari).
+		Get("/login", public.Login)
 }

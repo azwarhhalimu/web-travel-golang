@@ -12,6 +12,7 @@
 						<li class=" active"><a href="/">Beranda</a></li>
 						<li><a href="/semua-lokasi.html">Semua Lokasi</a></li>
 						<li><a href="/blog.html">Blog</a></li>
+						<li><a href="/admin">Administrator</a></li>
 					</ul><!--/.nav -->
 				</div>
 			</div>

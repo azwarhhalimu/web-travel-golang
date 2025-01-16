@@ -1,6 +1,7 @@
 package routes
 
 import (
+	"web_traveler/app/controllers/admin"
 	"web_traveler/app/controllers/admin/blog_admin"
 	"web_traveler/app/controllers/admin/kategori_admin"
 	"web_traveler/app/controllers/admin/lokasi_admin"
@@ -9,6 +10,8 @@ import (
 )
 
 func AdminRouting(app *fiber.Group) {
+	app.Get("/", admin.Dashboard)
+
 	app.Get("/kategori.html", kategori_admin.Kategori)
 	app.Get("/kategori/tambah-kategori.html", kategori_admin.TambahKategori)
 	app.Post("/kategori/tambah-kategori.html", kategori_admin.SimpanKategori)

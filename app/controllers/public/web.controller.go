@@ -69,3 +69,17 @@ func LokasiByKategori(ctx *fiber.Ctx) error {
 		"NumberFormat":  utils.NumberFormat,
 	})
 }
+
+func Cari(ctx *fiber.Ctx) error {
+	query := ctx.Query("query")
+	data := lokasi_services.Cari(query)
+	return render.RenderPublic(ctx, "cari", fiber.Map{
+		"Data":         data,
+		"NumberFormat": utils.NumberFormat,
+		"Query":        query,
+	})
+}
+
+func Login(ctx *fiber.Ctx) error {
+	return ctx.Render("login", fiber.Map{})
+}

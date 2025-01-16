@@ -1,1 +1,32 @@
-kadjfk kadfjk dfj
+<center>
+    <h2>Selamat Data Administrotor</h2>
+    <br />
+    <div style="width: 500px;">
+        <div class="card">
+            <div class="card-body">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>Nama User</td>
+                            <td>:</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Userename</td>
+                            <td>:</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Waktu Login</td>
+                            <td>:</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <br />
+        <br />
+        <button class="btn btn-danger">Logout</button>
+    </div>
+</center>

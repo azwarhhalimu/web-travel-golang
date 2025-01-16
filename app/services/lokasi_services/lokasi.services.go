@@ -126,3 +126,11 @@ func SetDefault(id_foto_lokasi string) string {
 		Where("id_foto_lokasi=?", id_foto_lokasi).Update("default_foto", 1)
 	return strconv.FormatUint(uint64(data.IDLokasi), 10)
 }
+func Cari(pencarian string) []model.TblLokasi {
+	var data []model.TblLokasi
+	config.DB.
+		Where("nama_lokasi like ?", "%"+pencarian+"%").
+		Preload("Kategori").Preload("FotoLokasi", "default_foto=?", "1").
+		Find(&data)
+	return data
+}

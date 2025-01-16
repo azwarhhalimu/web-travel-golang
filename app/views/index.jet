@@ -8,25 +8,29 @@
         Temukan template wisata, rental, tempat makan dan lain-lain
       </p>
     </div>
-    <div class="welcome-hero-serch-box">
-      <div class="welcome-hero-form">
+    <form action="/cari" method="GET">
+      <div class="welcome-hero-serch-box">
 
-        <div style="width:100%" class="single-welcome-hero-form">
-          <h3>location</h3>
-          <form action="index.html">
-            <input type="text" placeholder="Ex: Benteng keraton, kota mara" />
-          </form>
-          <div class="welcome-hero-form-icon">
-            <i class="flaticon-gps-fixed-indicator"></i>
+        <div class="welcome-hero-form">
+
+          <div style="width:100%" class="single-welcome-hero-form">
+            <h3>location</h3>
+
+            <input type="text" name="query" placeholder="Ex: Benteng keraton, kota mara" />
+
+            <div class="welcome-hero-form-icon">
+              <i class="flaticon-gps-fixed-indicator"></i>
+            </div>
           </div>
         </div>
+        <div class="welcome-hero-serch">
+          <button type="submit" class="welcome-hero-btn">
+            search <i data-feather="search"></i>
+          </button>
+        </div>
+
       </div>
-      <div class="welcome-hero-serch">
-        <button class="welcome-hero-btn">
-          search <i data-feather="search"></i>
-        </button>
-      </div>
-    </div>
+    </form>
   </div>
 
 </section>
