@@ -3,6 +3,7 @@ package public
 import (
 	"web_traveler/app/hook/render"
 	"web_traveler/app/services/blog_services"
+	"web_traveler/app/services/login"
 	"web_traveler/app/services/lokasi_services"
 	"web_traveler/app/services/user_services"
 	"web_traveler/app/utils"
@@ -82,4 +83,14 @@ func Cari(ctx *fiber.Ctx) error {
 
 func Login(ctx *fiber.Ctx) error {
 	return ctx.Render("login", fiber.Map{})
+}
+func DoLogin(ctx *fiber.Ctx) error {
+	username := ctx.FormValue("username")
+	password := ctx.FormValue("password")
+	status, _ := login.DoLogin(username, password)
+	if status == "success" {
+		return ctx.SendString("login sukses")
+	} else {
+		return ctx.SendString("login sukses status:" + status)
+	}
 }

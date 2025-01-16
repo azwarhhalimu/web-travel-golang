@@ -34,7 +34,7 @@
                                         <div class="text-center">
                                             <h1 class="h4 text-gray-900 mb-4">Login</h1>
                                         </div>
-                                        <form class="user">
+                                        <form action="" method="post" class="user">
                                             <div class="form-group">
                                                 <input type="text" name="username" required class="form-control"
                                                     id="exampleInputEmail" aria-describedby="emailHelp"

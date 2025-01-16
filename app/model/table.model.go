@@ -33,7 +33,16 @@ type TblFotoLokasi struct {
 	Default_foto uint
 	Image_name   string
 }
+type TblLogin struct {
+	IDLogin  uint `gorm:"primaryKey"`
+	Nama     string
+	Username string
+	Password string
+}
 
+func (TblLogin) TableName() string {
+	return "login"
+}
 func (TblFotoLokasi) TableName() string {
 	return "foto_lokasi"
 }
