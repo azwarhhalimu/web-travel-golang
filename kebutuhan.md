@@ -13,7 +13,7 @@ Yang du butuhnan
 5. Air verse : go install github.com/air-verse/air@latest
 6. Session : go get github.com/gofiber/fiber/v2/middleware/session
 7. Bcrypt golang : go get golang.org/x/crypto/bcrypt
-
+8. ENV : go get github.com/joho/godotenv
     
 --- embed map ----
 <iframe width="600" height="400" style="border:0;"
