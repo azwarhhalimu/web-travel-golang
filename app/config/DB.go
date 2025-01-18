@@ -2,6 +2,7 @@ package config
 
 import (
 	"log"
+	"os"
 
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
@@ -10,7 +11,7 @@ import (
 var DB *gorm.DB
 
 func Connect() {
-	dsn := "root:root@tcp(127.0.0.1:3306)/travel?charset=utf8mb4&parseTime=True&loc=Local"
+	dsn := os.Getenv("DB_USER") + ":" + os.Getenv("DB_PASSWORD") + "@tcp(" + os.Getenv("DB_HOST") + ":3306)/" + os.Getenv("DB_NAME") + "?charset=utf8mb4&parseTime=True&loc=Local"
 	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
 	if err != nil {
 		log.Panic("data base gagal terhubung")

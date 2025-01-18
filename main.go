@@ -8,9 +8,14 @@ import (
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/template/jet/v2"
+	"github.com/joho/godotenv"
 )
 
 func main() {
+	err := godotenv.Load()
+	if err != nil {
+		println(".ENV GAGAL DI LOAD. FILE .ENV TIDAK DI TEMUKAN")
+	}
 	config.InitSession()
 	config.Connect()
 	template := jet.New("./app/views", ".jet")

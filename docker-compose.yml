@@ -1,0 +1,35 @@
+services:
+  mariadb:
+    image: mariadb:latest
+    container_name: "TRAVEL_MARIADB"
+    restart: always
+    environment:
+      MARIADB_ROOT_PASSWORD: ${DB_PASSWORD}
+      MARIADB_ROOT_USER: ${DB_USER}
+      MARIADB_DATABASE: ${DB_NAME}
+    volumes:
+      - mariadb_data:/var/lib/mariadb
+  
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: "TRAVEL_PHPMYADMIN"
+    environment:
+      PMA_HOST : mariadb
+      PMA_USER : ${DB_USER}
+      PMA_PASSWORD : ${DB_PASSWORD}
+    ports:
+      - "8181:80"
+  gofiber_trave:
+    build: 
+      context: .
+      dockerfile: dockerfile
+    container_name: "CONTAINER_TRAVEL"
+    ports:
+      - "3000:2000"
+    environment:
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_NAME: ${DB_NAME}
+      DB_HOST: mariadb
+volumes:
+  mariadb_data :

@@ -7,3 +7,4 @@ storage/foto-lokasi/*
 !storage/ikon/.gitkeep
 !storage/blog/.gitkeep
 !storage/foto-lokasi/.gitkeep
+.env
